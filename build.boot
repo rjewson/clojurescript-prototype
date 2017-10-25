@@ -1,14 +1,19 @@
-(set-env! :dependencies '[[pandect "0.5.4"]])
-           
-(require '[pandect.algo.sha1 :refer [sha1]])
+(set-env!
+  :source-paths    #{"src"}
+  :resource-paths  #{"static"}
+  :dependencies '[[adzerk/boot-cljs   "1.7.228-2" :scope "test"]
+                  [adzerk/boot-reload "0.5.1" :scope "test"]
+                  [pandeiro/boot-http "0.7.3" :scope "test"]
+                  [org.clojure/clojurescript "1.9.456"]])
 
-(deftask sha-me "Sha me" [m message nil str "A custom message"]
-  (fn [fileset]
-     (println (sha1 message))
-     fileset))
+(require
+  '[adzerk.boot-cljs :refer [cljs]]
+  '[adzerk.boot-reload :refer [reload]]
+  '[pandeiro.boot-http :refer [serve]])
+  
 
-(deftask sha-me-sen "Sha everything" []
-     (comp
-     (sha-me :message "I love")
-       (sha-me :message "all the parenthesis")))
-        
+(task-options!
+  reload {:on-jsload 'minesweeper.app/main})
+
+(deftask dev []
+  (comp (serve) (watch) (reload) (cljs)))
