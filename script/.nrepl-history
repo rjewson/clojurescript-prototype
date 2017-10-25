@@ -1,0 +1,30 @@
+'(1 2 3)
+(1 2 3)
+(set-env! :dependencies '[[com.googlecode.soundlibs/jlayer
+"1.0.1.4"]])
+(get-env)
+(clojure.pprint/pprint (get-env))
+(set-env! :source-paths #{"foo" "bar"})
+(clojure.pprint/pprint (get-env))
+boot repl -c
+exit
+(def message "Someone was booting here")
+(deftask
+hello
+"say hello"
+[]
+(println "hello boot"))
+(hello)
+(doc hello)
+(comp)
+comp
+77
+(set-env!
+  :resource-paths #{"rsc"})
+(deftask print-env
+  "Print Environment variables"
+  []
+(println (get-env)))
+(print-env)
+ll
+quit
