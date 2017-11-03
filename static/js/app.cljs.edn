@@ -1,5 +1,4 @@
 {:init-fns [minesweeper.app/main]
   :compiler-options {
     :output-to "/js/app.js"
-    :optimizations :whitespace
     :asset-path "/js/app.out"}}

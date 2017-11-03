@@ -1,4 +1,4 @@
-# clojurescript-prototype
+# clojurescript-minesweeper
 
 ## Setup
 
@@ -15,3 +15,13 @@ Run something from the command line:
 ```
 boot -f cli.clj
 ```
+
+## Dev env
+
+```
+boot dev
+boot repl -c
+```
+
+# Notes
+https://github.com/magomimmo/modern-cljs/tree/master/doc/second-edition

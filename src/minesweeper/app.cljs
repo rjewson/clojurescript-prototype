@@ -1,4 +1,8 @@
 (ns minesweeper.app)
 
+(defn set-container-html [msg]
+  (let [ container (.getElementById js/document "app")]
+   (set! (.-innerHTML container) msg)))
+
 (defn main []
-  (js/alert "Works!"))
+  (set-container-html "This works!!"))
