@@ -209,3 +209,11 @@ exit
 (set-container-html "cool!")
 (set-container-html "cool!!!!")
 quit
+(start-repl)
+(ns minesweeper.app)
+(str 1 2)
+(reset state "lol")
+(reset! state "lol")
+(reset! state "lol!!!")
+quit
+(start-repl)
